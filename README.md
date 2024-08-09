@@ -28,6 +28,4 @@ pnpm install
 pnpm dev
 ```
 
-
-
 再浏览器打开 [http://localhost:3000](http://localhost:3000)查看运行结果
