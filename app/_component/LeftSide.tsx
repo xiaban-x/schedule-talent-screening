@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 
 const LeftSide = () => {
     const pathname = usePathname();
-    const [currentPath, setCurrentPath] = useState(pathname);
+    const [currentPath, setCurrentPath] = useState(pathname.replace("/",""));
     const routes = [
         {
             name: "达人智能筛选系统",
