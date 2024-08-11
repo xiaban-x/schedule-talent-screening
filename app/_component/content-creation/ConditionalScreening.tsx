@@ -22,7 +22,7 @@ const ConditionalScreening = () => {
         <div className={"w-347px flex items-center mt-28px border border-#6F6F6F"}>
             <div className={"flex items-center bg-#F5F7FB  pl-11px py-5px"}>
                 <Image src={Search} alt={"search"} width={20} height={20}/>
-                <input type="text" className={"w-262px bg-transparent border-transparent ml-12px border-none focus:outline-none focus:ring-0    "}
+                <input type="text" className={"w-262px bg-transparent border-transparent ml-12px border-none focus:outline-none focus:ring-0"}
                        placeholder={"洗发水推荐"}/>
             </div>
             <button className={"h-full bg-primary text-white w-50px py-5px"}>搜索</button>
@@ -64,7 +64,7 @@ const ConditionalScreening = () => {
                         <RangePicker
                             showTime={{format: dateFormat}}
                             format={dateFormat}
-                            defaultValue={[dayjs('2010-09-03', dateFormat), dayjs('2024-8-15', dateFormat)]}
+                            defaultValue={[dayjs('2010-09-03', dateFormat), dayjs('2024-08-15', dateFormat)]}
                             onChange={(value, dateString) => {
                                 console.log('Selected Time: ', value);
                                 console.log('Formatted Selected Time: ', dateString);

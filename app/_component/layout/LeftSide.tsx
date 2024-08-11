@@ -36,7 +36,7 @@ const LeftSide = () => {
                     <Link
 
                         href={`/${route.path}`}
-                        className={`leading-59px px-13px pb-18px border-b-1 border-#ACABAB ${currentPath === route.path ? 'text-primary' : 'text-neutral'}`}
+                        className={`leading-59px whitespace-nowrap px-13px pb-18px border-b-1 border-#ACABAB ${currentPath === route.path ? 'text-primary' : 'text-neutral'}`}
                         onClick={() => handleLinkClick(route.path)}
                     >
                         {route.name}
