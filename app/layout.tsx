@@ -2,9 +2,10 @@ import type {Metadata} from "next";
 import "./globals.css";
 import '@unocss/reset/tailwind-compat.css'
 
-import Upper from "@/app/_component/Upper";
+import Upper from "@/app/_component/layout/Upper";
 import React from "react";
-import LeftSide from "@/app/_component/LeftSide";
+import LeftSide from "@/app/_component/layout/LeftSide";
+import {AntdRegistry} from "@ant-design/nextjs-registry";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -25,8 +26,8 @@ export default function RootLayout({
             </div>
             <div className={"flex min-h-screen items-start"}>
                 <LeftSide/>
-                <div className={"pt-83px"}>
-                    {children}
+                <div className={"w-full pt-83px"}>
+                    <AntdRegistry>{children}</AntdRegistry>
                 </div>
             </div>
         </div>
