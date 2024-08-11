@@ -21,12 +21,14 @@ export default function RootLayout({
         <html lang="en">
         <body>
         <div className={"w-full"}>
-            <div className={"w-full fixed top-0 left-0 bg-white pl-30px pr-67px pt-19px pb-14px"}>
+            <div className={"w-full fixed z-2 top-0 left-0 bg-white pl-30px pr-67px pt-19px pb-14px"}>
                 <Upper></Upper>
             </div>
             <div className={"flex min-h-screen items-start"}>
-                <LeftSide/>
-                <div className={"w-full pt-83px"}>
+                <div className={"w-207px fixed top-0 left-0 z-1"}>
+                    <LeftSide/>
+                </div>
+                <div className={"w-full ml-207px pt-83px"}>
                     <AntdRegistry>{children}</AntdRegistry>
                 </div>
             </div>

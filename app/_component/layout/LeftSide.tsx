@@ -30,7 +30,7 @@ const LeftSide = () => {
     };
 
     return (
-        <div className="w-207px px-24px bg-white h-screen  pt-94px">
+        <div className="w-full px-24px bg-white h-screen  pt-94px">
             {routes.map((route, index) => (
                 <div key={index}>
                     <Link
