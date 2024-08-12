@@ -1,4 +1,4 @@
 const page = () => {
-    return <div>grass-marketing page</div>
+    return <div>advertising page</div>
 }
 export default page;
