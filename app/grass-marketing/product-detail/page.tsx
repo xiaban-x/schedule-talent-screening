@@ -95,7 +95,7 @@ const Page = () => {
         },
     ];
 
-    return <div className="bg-white p-20px rounded-20px shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
+    return <div className="bg-white pt-10px pb-50px rounded-20px">
         <Table components={components} columns={columns} dataSource={data} pagination={false}/>
     </div>
 }
