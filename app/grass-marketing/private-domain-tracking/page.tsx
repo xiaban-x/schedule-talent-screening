@@ -42,13 +42,13 @@ const Page = () => {
         <div>私域转化</div>
         <div className={"flex space-x-40px mt-15px"}>{
             cardData1.map((item, index) => (
-                <PrivateCard {...item}/>
+                <div key={index}><PrivateCard {...item}/></div>
             ))
         }</div>
         <div className={"mt-19px"}>私域促活</div>
         <div className={"flex space-x-40px mt-15px"}>{
             cardData2.map((item, index) => (
-                <PrivateCard {...item}/>
+                <div key={index}><PrivateCard {...item}/></div>
             ))
         }</div>
     </div>
