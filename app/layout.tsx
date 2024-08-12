@@ -28,7 +28,7 @@ export default function RootLayout({
                 <div className={"w-207px fixed top-0 left-0 z-1"}>
                     <LeftSide/>
                 </div>
-                <div className={"w-full ml-207px pt-83px"}>
+                <div className={"w-full flex-1 ml-207px pt-83px"}>
                     <AntdRegistry>{children}</AntdRegistry>
                 </div>
             </div>

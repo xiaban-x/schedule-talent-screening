@@ -5,11 +5,13 @@ import BottomHalfNav from "@/app/_component/grass-marketing/BottomHalfNav";
 const layout = ({children}: Readonly<{
     children: React.ReactNode;
 }>) => {
-    return <div className={"pl-17px pt-15px pr-14px w-full"}>
+    return <div className={"pl-17px pt-15px pr-14px w-full h-full"}>
         <TopHalf/>
-        <div className={"h-full bg-white rounded-20px pl-28px pt-15px mt-15px"}>
+        <div className={"bg-white rounded-20px pl-28px pt-15px mt-15px flex flex-col h-full"}>
             <BottomHalfNav/>
-            {children}
+            <div className={""}>
+                {children}
+            </div>
         </div>
     </div>
 }
