@@ -7,6 +7,11 @@ const nextConfig = {
                 destination: '/talent-screening',
                 permanent: true,
             },
+            {
+                source: '/grass-marketing',
+                destination: '/grass-marketing/basic-data',
+                permanent: true,
+            },
         ];
     },
 };
