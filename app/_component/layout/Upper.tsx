@@ -37,7 +37,7 @@ const Upper = () => {
     return (
         <div className="flex w-full justify-between items-center">
             <div className="flex items-center">
-                <Image src={Logo} alt="logo" width={50} height={50} layout="fixed"/>
+                <Image src={Logo} alt="logo" width={50} height={50}/>
                 <div
                     className="bg-gradient-to-r from-[#fb9d09] to-[#fc641b] text-transparent bg-clip-text font-sans text-[24px] font-bold">
                     有档期么
@@ -58,10 +58,10 @@ const Upper = () => {
                 </div>
             </div>
             <div className="flex items-center space-x-[20px]">
-                <Image src={NotificationIcon} alt="notification" width={28} height={28} layout="fixed"/>
-                <Image src={SettingIcon} alt="setting" width={28} height={28} layout="fixed"/>
-                <Image src={UserIcon} alt="user" width={28} height={28} layout="fixed"/>
-                <Image src={Avatar} alt="avatar" width={41} height={41} layout="fixed"/>
+                <Image src={NotificationIcon} alt="notification" width={28} height={28}/>
+                <Image src={SettingIcon} alt="setting" width={28} height={28}/>
+                <Image src={UserIcon} alt="user" width={28} height={28}/>
+                <Image src={Avatar} alt="avatar" width={41} height={41}/>
                 <div>小小火</div>
             </div>
         </div>
