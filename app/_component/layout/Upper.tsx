@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const Upper = () => {
     const pathname = usePathname();
-    const [currentPath, setCurrentPath] = useState(pathname.replace("/", ""));
+    const [currentPath, setCurrentPath] = useState(pathname);
     const routes = [
         // {
         //     name: "达人智能筛选系统",
@@ -23,11 +23,11 @@ const Upper = () => {
         // },
         {
             name: "内容智能创作系统",
-            path: "content-creation"
+            path: "/content-creation"
         },
         {
             name: "种草营销服务系统",
-            path: "grass-marketing"
+            path: "/grass-marketing"
         },
     ];
 
@@ -43,16 +43,22 @@ const Upper = () => {
                     有档期么
                 </div>
                 <div className="flex items-center space-x-20px ml-20px">
+                    {/*{routes.map((route, index) => (*/}
+                    {/*    <div key={index}>*/}
+                    {/*        <Link*/}
+                    {/*            href={`/${route.path}`}*/}
+                    {/*            className={`leading-29px whitespace-nowrap px-13px pb-18px border-b-1 border-#ACABAB ${currentPath === route.path ? 'text-primary' : 'text-neutral'}`}*/}
+                    {/*            onClick={() => handleLinkClick(route.path)}*/}
+                    {/*        >*/}
+                    {/*            {route.name}*/}
+                    {/*        </Link>*/}
+                    {/*    </div>*/}
+                    {/*))}*/}
                     {routes.map((route, index) => (
-                        <div key={index}>
-                            <Link
-
-                                href={`/${route.path}`}
-                                className={`leading-29px whitespace-nowrap px-13px pb-18px border-b-1 border-#ACABAB ${currentPath === route.path ? 'text-primary' : 'text-neutral'}`}
-                                onClick={() => handleLinkClick(route.path)}
-                            >
-                                {route.name}
-                            </Link>
+                        currentPath.includes(route.path) &&
+                        <div key={index}
+                             className={'leading-29px whitespace-nowrap px-13px text-18px text-primary fw-700'}>
+                            {route.name}
                         </div>
                     ))}
                 </div>
