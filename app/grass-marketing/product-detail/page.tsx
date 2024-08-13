@@ -41,11 +41,66 @@ const Page = () => {
             numberOfRefunds: '105',
             lastTradingTime: '2024-04-09',
         },
+        {
+            key: '5',
+            image: '/content-creation/廖西西.png',
+            user: '蓝天白云',
+            totalMoney: '￥127589.47',
+            paymentOrderNumber: '3892',
+            numberOfRefunds: '89',
+            lastTradingTime: '2024-03-15',
+        },
+        {
+            key: '6',
+            image: '/content-creation/勉是酷girl.png',
+            user: '小美人鱼',
+            totalMoney: '￥118752.90',
+            paymentOrderNumber: '3621',
+            numberOfRefunds: '67',
+            lastTradingTime: '2024-02-20',
+        },
+        {
+            key: '7',
+            image: '/content-creation/赤脚大仙的大仙.png',
+            user: '狂野玫瑰',
+            totalMoney: '￥115693.28',
+            paymentOrderNumber: '3410',
+            numberOfRefunds: '120',
+            lastTradingTime: '2024-01-30',
+        },
+        {
+            key: '8',
+            image: '/content-creation/廖西西.png',
+            user: '天才少年',
+            totalMoney: '￥109342.75',
+            paymentOrderNumber: '2987',
+            numberOfRefunds: '54',
+            lastTradingTime: '2024-01-10',
+        },
+        {
+            key: '9',
+            image: '/content-creation/赤脚大仙的大仙.png',
+            user: '夜空中最亮的星',
+            totalMoney: '￥102547.13',
+            paymentOrderNumber: '2846',
+            numberOfRefunds: '103',
+            lastTradingTime: '2023-12-25',
+        },
+        {
+            key: '10',
+            image: '/content-creation/勉是酷girl.png',
+            user: '梦中的婚礼',
+            totalMoney: '￥96458.20',
+            paymentOrderNumber: '2503',
+            numberOfRefunds: '75',
+            lastTradingTime: '2023-11-30',
+        },
     ];
+
     const components = {
         header: {
-            cell: (props:any) => (
-                <th {...props} style={{ backgroundColor: '#FBF7F0' }}>
+            cell: (props: any) => (
+                <th {...props} style={{backgroundColor: '#FBF7F0'}}>
                     {props.children}
                 </th>
             ),
@@ -56,9 +111,9 @@ const Page = () => {
             title: '基本信息',
             dataIndex: 'image',
             key: 'image',
-            render: (text:string, record:any) => (
+            render: (text: string, record: any) => (
                 <div className="flex items-center text-12px text-neutral">
-                    <Image src={record.image} alt={record.title} width={50} height={50}  className={"rounded-full"}/>
+                    <Image src={record.image} alt={record.title} width={50} height={50} className={"rounded-full"}/>
                     <div className={'ml-12px'}>{record.user}</div>
                 </div>
             ),
