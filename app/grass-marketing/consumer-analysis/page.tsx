@@ -16,9 +16,9 @@ const Page = () => {
                 type: 'pie',
                 radius: '50%',
                 data: [
-                    { value: 20, name: '男' },
-                    { value: 979, name: '女' },
-                    { value: 1, name: '未知' }
+                    {value: 20, name: '男'},
+                    {value: 979, name: '女'},
+                    {value: 1, name: '未知'}
                 ],
                 emphasis: {
                     itemStyle: {
@@ -60,7 +60,7 @@ const Page = () => {
             }
         ]
     };
-    return <div className={"flex mt-18px ml-10px pb-90px"}>
+    return <div className={"flex items-center justify-center mt-18px ml-10px pb-90px"}>
         <div className={"w-467px h-426px shadow-[4px_4px_10px_rgba(0,0,0,0.1)]"}>
             <div className={"fw-700"}>用户画像</div>
             <div className={"mt-15px"}>性别分布</div>
