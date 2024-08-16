@@ -4,98 +4,67 @@ import {Button, Table} from "antd";
 import React from "react";
 
 const Page = () => {
-    const data = [
-        {
-            key: '1',
-            image: '/content-creation/赤脚大仙的大仙.png',
-            user: '赤脚大仙的大仙',
-            totalMoney: '￥155364.30',
-            paymentOrderNumber: '7852',
-            numberOfRefunds: '1205',
-            lastTradingTime: '2024-06-15',
-        },
-        {
-            key: '2',
-            image: '/content-creation/廖西西.png',
-            user: '廖西西',
-            totalMoney: '￥155422.64',
-            paymentOrderNumber: '7420',
-            numberOfRefunds: '906',
-            lastTradingTime: '2024-05-10',
-        },
-        {
-            key: '3',
-            image: '/content-creation/勉是酷girl.png',
-            user: '勉是酷girl',
-            totalMoney: '￥142588.50',
-            paymentOrderNumber: '6528',
-            numberOfRefunds: '522',
-            lastTradingTime: '2024-04-10',
-        },
-        {
-            key: '4',
-            image: '/content-creation/可乐小甜姜.png',
-            user: '可乐小甜姜',
-            totalMoney: '￥132246.36',
-            paymentOrderNumber: '4210',
-            numberOfRefunds: '105',
-            lastTradingTime: '2024-04-09',
-        },
-        {
-            key: '5',
-            image: '/content-creation/廖西西.png',
-            user: '蓝天白云',
-            totalMoney: '￥127589.47',
-            paymentOrderNumber: '3892',
-            numberOfRefunds: '89',
-            lastTradingTime: '2024-03-15',
-        },
-        {
-            key: '6',
-            image: '/content-creation/勉是酷girl.png',
-            user: '小美人鱼',
-            totalMoney: '￥118752.90',
-            paymentOrderNumber: '3621',
-            numberOfRefunds: '67',
-            lastTradingTime: '2024-02-20',
-        },
-        {
-            key: '7',
-            image: '/content-creation/赤脚大仙的大仙.png',
-            user: '狂野玫瑰',
-            totalMoney: '￥115693.28',
-            paymentOrderNumber: '3410',
-            numberOfRefunds: '120',
-            lastTradingTime: '2024-01-30',
-        },
-        {
-            key: '8',
-            image: '/content-creation/廖西西.png',
-            user: '天才少年',
-            totalMoney: '￥109342.75',
-            paymentOrderNumber: '2987',
-            numberOfRefunds: '54',
-            lastTradingTime: '2024-01-10',
-        },
-        {
-            key: '9',
-            image: '/content-creation/赤脚大仙的大仙.png',
-            user: '夜空中最亮的星',
-            totalMoney: '￥102547.13',
-            paymentOrderNumber: '2846',
-            numberOfRefunds: '103',
-            lastTradingTime: '2023-12-25',
-        },
-        {
-            key: '10',
-            image: '/content-creation/勉是酷girl.png',
-            user: '梦中的婚礼',
-            totalMoney: '￥96458.20',
-            paymentOrderNumber: '2503',
-            numberOfRefunds: '75',
-            lastTradingTime: '2023-11-30',
-        },
-    ];
+    function getRandomEnglishWord() {
+        const words = [
+            'Shadow', 'Raven', 'Blaze', 'Phoenix', 'Mystic',
+            'Eclipse', 'Zephyr', 'Noir', 'Frost', 'Storm',
+            'Vortex', 'Nebula', 'Seraph', 'Viper', 'Draco'
+        ];
+        return words[Math.floor(Math.random() * words.length)];
+    }
+
+    function getRandomChineseChar() {
+        const cnChars = '你好世界和平美丽梦想星空希望未来';
+        return cnChars.charAt(Math.floor(Math.random() * cnChars.length));
+    }
+
+    function generateUsername() {
+        const minLen = 5;
+        const maxLen = 11;
+
+        // Step 1: Generate an English word
+        let username = getRandomEnglishWord();
+        const usernameLength = username.length;
+
+        // Step 2: Calculate how many Chinese characters we can add
+        const remainingLength = Math.floor(Math.random() * (maxLen - minLen + 1)) + minLen - usernameLength;
+
+        // Step 3: Add Chinese characters at random positions (before or after the word)
+        let finalUsername = '';
+        for (let i = 0; i < remainingLength; i++) {
+            if (Math.random() > 0.5) {
+                finalUsername += getRandomChineseChar();
+            }
+        }
+
+        // Randomly decide to insert Chinese characters before or after the English word
+        if (Math.random() > 0.5) {
+            finalUsername = finalUsername + username;
+        } else {
+            finalUsername = username + finalUsername;
+        }
+
+        return finalUsername;
+    }
+
+    const temp = new Array(30).fill(0);
+    const initData = temp.map((_, index) => {
+        return {
+            key: index + 1,
+            image: `/数据大屏材料/素人头像/pic (${index + 1}).jpg`,
+            user: generateUsername(),
+            totalMoney: `￥${Math.floor(Math.random() * 96458)}`,
+            paymentOrderNumber: Math.floor(Math.random() * 2503),
+            numberOfRefunds: Math.floor(Math.random() * 75),
+            lastTradingTime: `2023-${String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 30) + 1).padStart(2, '0')}`,
+        }
+    })
+    const data = []
+    data.push(...initData);
+    data.push(...initData);
+    data.push(...initData);
+    data.push(...initData);
+    console.log(data)
 
     const components = {
         header: {
@@ -113,8 +82,8 @@ const Page = () => {
             key: 'image',
             render: (text: string, record: any) => (
                 <div className="flex items-center text-12px text-neutral">
-                    <Image src={record.image} alt={record.title} width={50} height={50} className={"rounded-full"}/>
-                    <div className={'ml-12px'}>{record.user}</div>
+                    <Image src={record?.image} alt={record?.title} width={50} height={50} className={"rounded-full"}/>
+                    <div className={'ml-12px'}>{record?.user}</div>
                 </div>
             ),
         },
