@@ -2,50 +2,50 @@
 import Image from "next/image";
 import {Button, Table} from "antd";
 import React from "react";
+export function getRandomEnglishWord() {
+    const words = [
+        'Shadow', 'Raven', 'Blaze', 'Phoenix', 'Mystic',
+        'Eclipse', 'Zephyr', 'Noir', 'Frost', 'Storm',
+        'Vortex', 'Nebula', 'Seraph', 'Viper', 'Draco'
+    ];
+    return words[Math.floor(Math.random() * words.length)];
+}
 
-const Page = () => {
-    function getRandomEnglishWord() {
-        const words = [
-            'Shadow', 'Raven', 'Blaze', 'Phoenix', 'Mystic',
-            'Eclipse', 'Zephyr', 'Noir', 'Frost', 'Storm',
-            'Vortex', 'Nebula', 'Seraph', 'Viper', 'Draco'
-        ];
-        return words[Math.floor(Math.random() * words.length)];
-    }
+export function getRandomChineseChar() {
+    const cnChars = '你好世界和平美丽梦想星空希望未来';
+    return cnChars.charAt(Math.floor(Math.random() * cnChars.length));
+}
 
-    function getRandomChineseChar() {
-        const cnChars = '你好世界和平美丽梦想星空希望未来';
-        return cnChars.charAt(Math.floor(Math.random() * cnChars.length));
-    }
+export function generateUsername() {
+    const minLen = 5;
+    const maxLen = 11;
 
-    function generateUsername() {
-        const minLen = 5;
-        const maxLen = 11;
+    // Step 1: Generate an English word
+    let username = getRandomEnglishWord();
+    const usernameLength = username.length;
 
-        // Step 1: Generate an English word
-        let username = getRandomEnglishWord();
-        const usernameLength = username.length;
+    // Step 2: Calculate how many Chinese characters we can add
+    const remainingLength = Math.floor(Math.random() * (maxLen - minLen + 1)) + minLen - usernameLength;
 
-        // Step 2: Calculate how many Chinese characters we can add
-        const remainingLength = Math.floor(Math.random() * (maxLen - minLen + 1)) + minLen - usernameLength;
-
-        // Step 3: Add Chinese characters at random positions (before or after the word)
-        let finalUsername = '';
-        for (let i = 0; i < remainingLength; i++) {
-            if (Math.random() > 0.5) {
-                finalUsername += getRandomChineseChar();
-            }
-        }
-
-        // Randomly decide to insert Chinese characters before or after the English word
+    // Step 3: Add Chinese characters at random positions (before or after the word)
+    let finalUsername = '';
+    for (let i = 0; i < remainingLength; i++) {
         if (Math.random() > 0.5) {
-            finalUsername = finalUsername + username;
-        } else {
-            finalUsername = username + finalUsername;
+            finalUsername += getRandomChineseChar();
         }
-
-        return finalUsername;
     }
+
+    // Randomly decide to insert Chinese characters before or after the English word
+    if (Math.random() > 0.5) {
+        finalUsername = finalUsername + username;
+    } else {
+        finalUsername = username + finalUsername;
+    }
+
+    return finalUsername;
+}
+const Page = () => {
+
 
     const temp = new Array(30).fill(0);
     const initData = temp.map((_, index) => {
@@ -64,7 +64,9 @@ const Page = () => {
     data.push(...initData);
     data.push(...initData);
     data.push(...initData);
-    console.log(data)
+    data.push(...initData);
+    data.push(...initData);
+    data.push(...initData);
 
     const components = {
         header: {
