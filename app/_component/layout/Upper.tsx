@@ -7,8 +7,7 @@ import SettingIcon from "/public/setting.svg";
 import UserIcon from "/public/user.svg";
 import Avatar from "/public/avatar.png";
 import {usePathname, useRouter} from "next/navigation";
-import Link from "next/link";
-import {Select, Space} from 'antd';
+import {Select} from 'antd';
 
 const Upper = () => {
     const pathname = usePathname();
@@ -32,7 +31,7 @@ const Upper = () => {
         },
     ];
     const [currentPath, setCurrentPath] =
-        useState(routes.find(item => pathname === item.value)?.label);
+        useState(routes.find(item => pathname.includes(item.value))?.label);
 
 
     const handleLinkClick = (path: string) => {
