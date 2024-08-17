@@ -159,7 +159,7 @@ const SearchResult = () => {
     return <div className="bg-white p-20px rounded-20px shadow-[0_2px_8px_rgba(0,0,0,0.1)]">
         <div className="mb-10px flex justify-between items-center">
             <div className="text-24px font-bold">搜索结果</div>
-            <div className="text-14px text-#ACABAB">共15w条结果</div>
+            <div className="text-14px text-#ACABAB">共85132条结果</div>
         </div>
         {/*@ts-ignore*/}
         <Table components={components} columns={columns} dataSource={data} pagination={false}/>
