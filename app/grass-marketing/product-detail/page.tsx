@@ -68,7 +68,7 @@ const Page = () => {
     const components = {
         header: {
             cell: (props: any) => (
-                <th {...props} style={{backgroundColor: '#FBF7F0'}}>
+                <th {...props} style={{backgroundColor: '#FBF7F0', textAlign:'center'}}>
                     {props.children}
                 </th>
             ),
@@ -90,25 +90,30 @@ const Page = () => {
             title: '总支付金额',
             dataIndex: 'totalMoney',
             key: 'totalMoney',
+            align: 'center',
         },
         {
             title: '支付订单数',
             dataIndex: 'paymentOrderNumber',
             key: 'paymentOrderNumber',
+            align: 'center',
         },
         {
             title: '退款次数',
             dataIndex: 'numberOfRefunds',
             key: 'numberOfRefunds',
+            align: 'center',
         },
         {
             title: '最近一次交易事件',
             dataIndex: 'lastTradingTime',
             key: 'lastTradingTime',
+            align: 'center',
         },
         {
             title: '操作',
             key: 'action',
+            align: 'center',
             render: () => (
                 <>
                     <Button type="link">收藏</Button>
@@ -119,6 +124,7 @@ const Page = () => {
     ];
 
     return <div className="bg-white pt-10px pb-50px rounded-20px">
+        {/*@ts-ignore*/}
         <Table components={components} columns={columns} dataSource={data} pagination={false}/>
     </div>
 }
