@@ -10,7 +10,7 @@ const SearchResult = () => {
         'Vortex', 'Nebula', 'Seraph', 'Viper', 'Draco'
     ];
 
-    const generateUsername = ():string =>  {
+    const generateUsername = (): string => {
         const minLen = 5;
         const maxLen = 11;
 
@@ -22,7 +22,7 @@ const SearchResult = () => {
         const remainingLength = Math.floor(Math.random() * (maxLen - minLen + 1)) + minLen - usernameLength;
 
         // Step 3: Add Chinese characters at random positions (before or after the word)
-        let finalUsername:string = '';
+        let finalUsername: string = '';
         for (let i = 0; i < remainingLength; i++) {
             if (Math.random() > 0.5) {
                 finalUsername += '你好世界和平美丽梦想星空希望未来'.charAt(Math.floor(Math.random() * '你好世界和平美丽梦想星空希望未来'.length));
@@ -97,8 +97,8 @@ const SearchResult = () => {
     data.push(...initData)
     const components = {
         header: {
-            cell: (props:any) => (
-                <th {...props} style={{ backgroundColor: '#FBF7F0' }}>
+            cell: (props: any) => (
+                <th {...props} style={{backgroundColor: '#FBF7F0', textAlign: 'center'}}>
                     {props.children}
                 </th>
             ),
@@ -109,9 +109,9 @@ const SearchResult = () => {
             title: '基本信息',
             dataIndex: 'image',
             key: 'image',
-            render: (text:string, record:any) => (
+            render: (text: string, record: any) => (
                 <div className="flex items-center text-12px text-neutral">
-                    <Image src={record.image} alt={record.title} width={60} height={70} />
+                    <Image src={record.image} alt={record.title} width={60} height={70}/>
                     <div className={'ml-12px'}>
                         <div className={'w-120px'}>{record.title}</div>
                         <div className={'mt-6px'}>{record.user}</div>
@@ -122,26 +122,31 @@ const SearchResult = () => {
         {
             title: '完播率',
             dataIndex: 'completionRate',
+            align: 'center',
             key: 'completionRate',
         },
         {
             title: '赞藏率',
             dataIndex: 'likes',
+            align: 'center',
             key: 'likes',
         },
         {
             title: '评论量',
             dataIndex: 'comments',
+            align: 'center',
             key: 'comments',
         },
         {
             title: '购买率',
             dataIndex: 'purchaseRate',
+            align: 'center',
             key: 'purchaseRate',
         },
         {
             title: '操作',
             key: 'action',
+            align: 'center',
             render: () => (
                 <>
                     <Button type="link">收藏</Button>
@@ -156,6 +161,7 @@ const SearchResult = () => {
             <div className="text-24px font-bold">搜索结果</div>
             <div className="text-14px text-#ACABAB">共15w条结果</div>
         </div>
+        {/*@ts-ignore*/}
         <Table components={components} columns={columns} dataSource={data} pagination={false}/>
     </div>
 

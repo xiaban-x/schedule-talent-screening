@@ -148,6 +148,7 @@ const SearchResult = () => {
             <div className="text-24px font-bold">搜索结果</div>
             <div className="text-14px text-#ACABAB">共75215条结果</div>
         </div>
+         {/*@ts-ignore*/}
         <Table components={components} columns={columns} dataSource={data} pagination={false}/>
     </div>
 
