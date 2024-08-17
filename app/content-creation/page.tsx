@@ -5,6 +5,7 @@ const page = () => {
     return <div className={"w-full pt-24px pl-17px pr-14px space-y-15px"}>
         {/*条件筛选*/}
         <ConditionalScreening/>
+        {/*搜索结果*/}
         <SearchResult/>
     </div>
 }

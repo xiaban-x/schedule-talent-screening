@@ -2,32 +2,9 @@
 import Image from "next/image";
 import {Button, Table} from "antd";
 import React from "react";
-import generateUsername from "@/app/_utils/generateUsername";
+import {productDetailData} from "@/app/_mock/grassMarketingMock";
 
 const Page = () => {
-
-
-    const temp = new Array(30).fill(0);
-    const initData = temp.map((_, index) => {
-        return {
-            key: index + 1,
-            image: `/数据大屏材料/素人头像/pic (${index + 1}).jpg`,
-            user: generateUsername(),
-            totalMoney: `￥${Math.floor(Math.random() * 96458)}`,
-            paymentOrderNumber: Math.floor(Math.random() * 2503),
-            numberOfRefunds: Math.floor(Math.random() * 75),
-            lastTradingTime: `2023-${String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 30) + 1).padStart(2, '0')}`,
-        }
-    })
-    const data = []
-    data.push(...initData);
-    data.push(...initData);
-    data.push(...initData);
-    data.push(...initData);
-    data.push(...initData);
-    data.push(...initData);
-    data.push(...initData);
-
     const components = {
         header: {
             cell: (props: any) => (
@@ -36,7 +13,8 @@ const Page = () => {
                 </th>
             ),
         },
-    };
+    }
+
     const columns = [
         {
             title: '基本信息',
@@ -88,7 +66,7 @@ const Page = () => {
 
     return <div className="bg-white pt-10px pb-50px rounded-20px">
         {/*@ts-ignore*/}
-        <Table components={components} columns={columns} dataSource={data} pagination={false}/>
+        <Table components={components} columns={columns} dataSource={productDetailData} pagination={false}/>
     </div>
 }
 export default Page;
