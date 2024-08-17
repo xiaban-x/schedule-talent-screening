@@ -11,7 +11,7 @@ const TopHalf = () => {
             </div>
             <div className={"mt-45px"}>
                 <span>价格</span>
-                <span className={"text-primary text-24px fw-500"}>￥19.8</span>
+                <span className={"text-primary text-24px fw-500"}>￥139.9</span>
             </div>
         </div>
     </div>
