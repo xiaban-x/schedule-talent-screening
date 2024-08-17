@@ -8,7 +8,7 @@ const Page = () => {
     const components = {
         header: {
             cell: (props: any) => (
-                <th {...props} style={{backgroundColor: '#FBF7F0', textAlign:'center'}}>
+                <th {...props} style={{backgroundColor: '#FBF7F0', textAlign: 'center'}}>
                     {props.children}
                 </th>
             ),
@@ -66,7 +66,8 @@ const Page = () => {
 
     return <div className="bg-white pt-10px pb-50px rounded-20px">
         {/*@ts-ignore*/}
-        <Table components={components} columns={columns} dataSource={productDetailData} pagination={false}/>
+        <Table components={components} columns={columns} dataSource={productDetailData}
+               pagination={{position: ['bottomCenter']}}/>
     </div>
 }
 export default Page;
