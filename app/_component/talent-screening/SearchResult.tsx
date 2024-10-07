@@ -1,9 +1,28 @@
 "use client"
 import {Button, Table} from "antd";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import {provinces, talentScreeningData, talentScreeningLabels} from "@/app/_mock/talentScreening";
+import {useRouter} from "next/navigation";
 const SearchResult = () => {
+    // 定义状态来跟踪每行的收藏状态
+    const [favoriteStatus, setFavoriteStatus] = useState({});
+
+    const toggleFavorite = (record) => {
+        // 更新状态，切换收藏状态
+        setFavoriteStatus(prevState => ({
+            ...prevState,
+            [record.key]: !prevState[record.key] || undefined
+        }));
+    };
+    const [dataSource, setDataSource] = useState([]);
+    useEffect(() => {
+        // 只在客户端生成随机数据
+        setDataSource(talentScreeningData);
+    }, []);
+
+    const router = useRouter();
+
     const components = {
         header: {
             cell: (props: any) => (
@@ -65,11 +84,14 @@ const SearchResult = () => {
             title: '操作',
             key: 'action',
             align: 'center',
-            render: () => (
-                <div>
-                    <Button type="link">收藏</Button>
-                    <Button type="link">查看详情</Button>
-                </div>
+            width: 230,
+            render: (text: string, record: any) => (
+                <>
+                    <Button type="link" onClick={() => toggleFavorite(record)}>
+                        {favoriteStatus[record.key] ? '取消收藏' : '收藏'}
+                    </Button>
+                    <Button type="link" onClick={() => router.push('/product-detail')}>查看详情</Button>
+                </>
             ),
         },
     ];
@@ -79,8 +101,8 @@ const SearchResult = () => {
             <div className="text-24px font-bold">搜索结果</div>
             <div className="text-14px text-#ACABAB">共{talentScreeningData.length}条结果</div>
         </div>
-         {/*@ts-ignore*/}
-        <Table components={components} columns={columns} dataSource={talentScreeningData} pagination={{ position: ['bottomCenter'] }}/>
+        {/*@ts-ignore*/}
+        <Table components={components} columns={columns} dataSource={dataSource} pagination={{ position: ['bottomCenter'] }}/>
     </div>
 
 }

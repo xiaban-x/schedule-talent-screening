@@ -15,10 +15,10 @@ const provinces = [
 const talentScreeningLabels = ['vlog博主', '探店博主', '时尚博主', '运动博主', '颜值博主', '美妆博主']
 
 const talentScreeningData = new Array(84121).fill(0).map((_, index) => {
-    const notesNum = Math.floor(Math.random() * 2000)
+    const notesNum = Math.floor(Math.random() * 2000);
     return {
         key: index + 1,
-        image: `/数据大屏材料/素人头像/pic (${index%30 + 1}).jpg`,
+        image: `/数据大屏材料/素人头像/pic (${(index+5)%30 + 1}).jpg`,
         user: generateUsername(),
         notesNum: notesNum,
         newWorkNum: Math.floor(Math.random() * notesNum / 5),

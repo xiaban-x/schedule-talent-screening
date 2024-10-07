@@ -1,10 +1,29 @@
 "use client"
 import Image from "next/image";
 import {Button, Table} from "antd";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {productDetailData} from "@/app/_mock/grassMarketingMock";
+import {useRouter} from "next/navigation";
 
 const Page = () => {
+    // 定义状态来跟踪每行的收藏状态
+    const [favoriteStatus, setFavoriteStatus] = useState({});
+
+    const toggleFavorite = (record) => {
+        // 更新状态，切换收藏状态
+        setFavoriteStatus(prevState => ({
+            ...prevState,
+            [record.key]: !prevState[record.key] || undefined
+        }));
+    };
+    const [dataSource, setDataSource] = useState([]);
+    useEffect(() => {
+        // 只在客户端生成随机数据
+        setDataSource(productDetailData);
+    }, []);
+
+    const router = useRouter();
+
     const components = {
         header: {
             cell: (props: any) => (
@@ -55,10 +74,13 @@ const Page = () => {
             title: '操作',
             key: 'action',
             align: 'center',
-            render: () => (
+            width: 230,
+            render: (text: string, record: any) => (
                 <>
-                    <Button type="link">收藏</Button>
-                    <Button type="link">查看详情</Button>
+                    <Button type="link" onClick={() => toggleFavorite(record)}>
+                        {favoriteStatus[record.key] ? '取消收藏' : '收藏'}
+                    </Button>
+                    <Button type="link" onClick={() => router.push('/product-detail')}>查看详情</Button>
                 </>
             ),
         },
@@ -66,7 +88,7 @@ const Page = () => {
 
     return <div className="bg-white pt-10px pb-50px rounded-20px">
         {/*@ts-ignore*/}
-        <Table components={components} columns={columns} dataSource={productDetailData}
+        <Table components={components} columns={columns} dataSource={dataSource}
                pagination={{position: ['bottomCenter']}}/>
     </div>
 }

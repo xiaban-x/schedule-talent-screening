@@ -35,7 +35,7 @@ const titles = [
 const contentCreationData = new Array(41241).fill(0).map((_, index) => {
     return {
         key: index + 1,
-        image: `/数据大屏材料/素人头像/pic (${index%30 + 1}).jpg`,
+        image: `/数据大屏材料/素人头像/pic (${index % 30 + 1}).jpg`,
         user: generateUsername(),
         totalMoney: `￥${Math.floor(Math.random() * 96458)}`,
         title: titles[Math.floor(Math.random() * titles.length)],
@@ -46,6 +46,15 @@ const contentCreationData = new Array(41241).fill(0).map((_, index) => {
     }
 })
 
+const contentCreationDetailData = new Array(90).fill(0).map((_, index) => {
+    return {
+        id: index + 1,
+        userId: Math.floor(Math.random() * 9000000000 + 1000000000),
+        viewingDuration: Math.floor(Math.random() * 30),
+        purchaseQuantity: Math.floor(Math.random() * 20),
+    }
+})
 export {
-    contentCreationData
+    contentCreationData,
+    contentCreationDetailData,
 }

@@ -224,19 +224,32 @@ const privateDomainTrackingCard = [
 const productDetailData = new Array(1000).fill(0).map((_, index) => {
     return {
         key: index + 1,
-        image: `/数据大屏材料/素人头像/pic (${(index)%30+1}).jpg`,
+        image: `/数据大屏材料/素人头像/pic (${(index+10)%30+1}).jpg`,
         user: generateUsername(),
         totalMoney: `￥${Math.floor(Math.random() * 96458)}`,
         paymentOrderNumber: Math.floor(Math.random() * 2503),
         numberOfRefunds: Math.floor(Math.random() * 75),
         lastTradingTime: `2023-${String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 30) + 1).padStart(2, '0')}`,
+        status: false,
     }
 })
 
+const productDetailOneData = new Array(80).fill(0).map((_, index) => {
+    return {
+        id: index + 1,
+        count: Math.floor(Math.random() * 2503),
+        amount: Math.floor(Math.random() * 75),
+        tradingHours: `2023-${String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 30) + 1).padStart(2, '0')}`,
+        refundStatus: Math.floor(Math.random() * 75) % 2,
+        refundReason: '/',
+        afterSaleStatus: '/',
+    }
+})
 export {
     basicDataOption,
     consumerAnalysis,
     noteAnalysis,
     privateDomainTrackingCard,
-    productDetailData
+    productDetailData,
+    productDetailOneData
 }
